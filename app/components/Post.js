@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Post({ title, score, url, by, time }) {
+export default function Post({ title, descendants, url, by, time, id }) {
   let date = new Date(time * 1000);
   return (
     <React.Fragment>
       <a href={url}>{title}</a>
       <p>
-        by {by} on {date.toUTCString()} with{" "}
-        <u>TODO:TRAVERSE TREE AND COUNT COMMENTS</u> comments
+        by <a href={`/user?id=${by}`}>{by}</a> on {date.toLocaleString()} with{" "}
+        <a href={`/post?id=${id}`}>{descendants}</a> comments
       </p>
     </React.Fragment>
   );

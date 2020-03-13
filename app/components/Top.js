@@ -5,12 +5,19 @@ import Post from "./Post";
 function PostsList({ posts }) {
   return (
     <ul>
-      {posts.map(post => {
-        const { title, score, url, by, time } = post;
-
+      {posts.map((post, index) => {
+        const { title, score, url, by, time, id, descendants } = post;
         return (
-          <li key={url}>
-            <Post title={title} score={score} url={url} by={by} time={time} />
+          <li key={index}>
+            <Post
+              title={title}
+              score={score}
+              url={url}
+              by={by}
+              time={time}
+              descendants={descendants}
+              id={id}
+            />
           </li>
         );
       })}

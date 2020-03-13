@@ -13,6 +13,8 @@ export function getTopPosts() {
               if (post.message) {
                 throw new Error(getErrorMsg(post.message));
               }
+              console.log(post);
+              // fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
               return post;
             });
         })
