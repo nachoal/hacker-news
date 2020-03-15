@@ -1,6 +1,6 @@
 import React from "react";
 import { getTopPosts } from "../utils/api";
-import Post from "./Post";
+import SimplePost from "./SimplePost";
 
 function PostsList({ posts }) {
   return (
@@ -9,7 +9,7 @@ function PostsList({ posts }) {
         const { title, score, url, by, time, id, descendants } = post;
         return (
           <li key={index}>
-            <Post
+            <SimplePost
               title={title}
               score={score}
               url={url}
