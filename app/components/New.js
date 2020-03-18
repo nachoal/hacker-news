@@ -1,5 +1,5 @@
 import React from "react";
-import { getTopPosts } from "../utils/api";
+import { getNewPosts } from "../utils/api";
 import SimplePost from "./SimplePost";
 import Loading from "./Loading";
 
@@ -49,7 +49,7 @@ export default class Top extends React.Component {
       error: null
     });
     if (!Object.keys(this.state.posts).length) {
-      getTopPosts()
+      getNewPosts()
         .then(data => {
           this.setState({
             posts: data
@@ -74,7 +74,7 @@ export default class Top extends React.Component {
     const { posts, error } = this.state;
     return (
       <React.Fragment>
-        {this.isLoading() && <Loading text="Fetching top posts" />}
+        {this.isLoading() && <Loading text="Fetching new posts" />}
         {error && <p className="center-text error">{error}</p>}
         <PostsList posts={posts} />
       </React.Fragment>
