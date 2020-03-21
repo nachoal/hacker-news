@@ -1,5 +1,7 @@
 import React from "react";
 import Comment from "./Comment";
+import { Link } from "react-router-dom";
+
 function Comments({ kids }) {
   return (
     <ul>
@@ -22,8 +24,25 @@ export default function Post({ title, descendants, url, by, time, id, kids }) {
         <a href={url}>{title}</a>
       </h1>
       <div className="meta-info">
-        by <a href={`/user?id=${by}`}>{by}</a> on {date.toLocaleString()} with{" "}
-        <a href={`/post?id=${id}`}>{descendants}</a> comments
+        by{" "}
+        <Link
+          to={{
+            pathname: "/user",
+            search: `?id=${by}`
+          }}
+        >
+          {by}
+        </Link>{" "}
+        on {date.toLocaleString()} with{" "}
+        <Link
+          to={{
+            pathname: "/post",
+            search: `?id=${id}`
+          }}
+        >
+          {descendants}
+        </Link>{" "}
+        comments
       </div>
       <Comments kids={kids} />
     </React.Fragment>

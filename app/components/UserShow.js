@@ -21,7 +21,6 @@ export default class PostShow extends React.Component {
 
   updateUser(user) {
     const { id } = queryString.parse(this.props.location.search);
-    console.log(id);
     this.setState({
       user,
       error: null
