@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Styling
 import "./index.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 // Custom Components
 import Nav from "./components/Nav";
@@ -32,13 +33,15 @@ class App extends React.Component {
         <ThemeProvider value={this.state}>
           <div className={this.state.theme}>
             <Nav />
-            <Switch>
-              <Route exact path="/" component={Top} />
-              <Route exact path="/new" component={New} />
-              <Route path="/user" component={UserShow} />
-              <Route path="/post" component={PostShow} />
-              <Route render={() => <h1>404</h1>} />
-            </Switch>
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Top} />
+                <Route exact path="/new" component={New} />
+                <Route path="/user" component={UserShow} />
+                <Route path="/post" component={PostShow} />
+                <Route render={() => <h1>404</h1>} />
+              </Switch>
+            </div>
           </div>
         </ThemeProvider>
       </Router>

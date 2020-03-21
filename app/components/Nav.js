@@ -12,31 +12,47 @@ export default function Nav() {
   return (
     <ThemeConsumer>
       {({ theme, toggleTheme }) => (
-        <nav className="row space-between">
-          <ul className="row nav">
-            <li>
-              <NavLink
-                activeStyle={activeStyle}
-                exact
-                to="/"
-                className="nav-link"
-              >
-                Top
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeStyle={activeStyle} to="/new" className="nav-link">
-                New
-              </NavLink>
-            </li>
-          </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/">
+            Hacker News
+          </a>
           <button
-            style={{ fontSize: 30 }}
-            className="btn-clear"
-            onClick={toggleTheme}
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
-            {theme === "light" ? "🔦" : "💡"}
+            <span class="navbar-toggler-icon"></span>
           </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <NavLink
+                  className="nav-link"
+                  activeStyle={activeStyle}
+                  exact
+                  to="/"
+                >
+                  Top
+                </NavLink>
+              </li>
+              <li class="nav-item">
+                <NavLink
+                  className="nav-link"
+                  activeStyle={activeStyle}
+                  to="/new"
+                >
+                  New
+                </NavLink>
+              </li>
+            </ul>
+            <button id="nav" style={{ fontSize: 30 }} onClick={toggleTheme}>
+              {theme === "light" ? "🔦" : "💡"}
+            </button>
+          </div>
         </nav>
       )}
     </ThemeConsumer>
