@@ -5,9 +5,9 @@ export default function Comment({ by, time, text }) {
   return (
     <React.Fragment>
       <p>
-        by <a href={`/user?id=${by}`}>{by}</a> on {date.toLocaleString()}
+        <a href={`/user?id=${by}`}>{by}</a> on {date.toLocaleString()}
       </p>
-      <p>{text}</p>
+      <p dangerouslySetInnerHTML={{ __html: text }} />
     </React.Fragment>
   );
 }

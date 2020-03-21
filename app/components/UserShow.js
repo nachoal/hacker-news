@@ -1,8 +1,8 @@
 import React from "react";
+import queryString from "query-string";
 import { getUser } from "../utils/api";
 import User from "./User";
 import Loading from "./Loading";
-
 export default class PostShow extends React.Component {
   constructor(props) {
     super(props);
@@ -20,12 +20,14 @@ export default class PostShow extends React.Component {
   }
 
   updateUser(user) {
+    const { id } = queryString.parse(this.props.location.search);
+    console.log(id);
     this.setState({
       user,
       error: null
     });
     if (Object.keys(this.state.user).length === 0) {
-      getUser("raspasov")
+      getUser(id)
         .then(data => {
           this.setState({
             user: data

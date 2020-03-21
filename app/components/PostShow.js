@@ -1,4 +1,5 @@
 import React from "react";
+import queryString from "query-string";
 import { getPost } from "../utils/api";
 import Post from "./Post";
 import Loading from "./Loading";
@@ -20,12 +21,13 @@ export default class PostShow extends React.Component {
   }
 
   updatePost(post) {
+    const { id } = queryString.parse(this.props.location.search);
     this.setState({
       post,
       error: null
     });
     if (Object.keys(this.state.post).length === 0) {
-      getPost("22575775")
+      getPost(id)
         .then(data => {
           this.setState({
             post: data

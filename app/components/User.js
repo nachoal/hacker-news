@@ -30,7 +30,7 @@ export default function User({ about, created, karma, submitted, id }) {
       <h1 className="header">{id}</h1>
       <div className="meta-info">
         joined {date.toLocaleString()} has {karma} karma
-        <p>{about}</p>
+        <p dangerouslySetInnerHTML={{ __html: about }} />
       </div>
       <h3>Posts</h3>
       <UserPosts submitted={submitted} />

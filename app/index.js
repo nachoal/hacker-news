@@ -35,6 +35,8 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Top} />
               <Route exact path="/new" component={New} />
+              <Route path="/user" component={UserShow} />
+              <Route path="/post" component={PostShow} />
               <Route render={() => <h1>404</h1>} />
             </Switch>
           </div>
